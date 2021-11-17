@@ -6,7 +6,7 @@
 /*   By: jmurovec <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/30 11:33:09 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/10/31 20:05:47 by jaka          ########   odam.nl         */
+/*   Updated: 2021/11/17 12:40:48 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char			*ft_strrchr(const char *str, char c);
 char			*ft_strnstr(const char *hay, const char *needle, size_t size);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
+double			ft_atof(const char *str);
 int				ft_isspace(int c);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
