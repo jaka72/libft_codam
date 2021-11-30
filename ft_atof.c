@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/16 16:35:36 by jmurovec      #+#    #+#                 */
-/*   Updated: 2021/11/17 12:38:10 by jmurovec      ########   odam.nl         */
+/*   Updated: 2021/11/30 15:34:04 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static int	overflow(int sign, double num, const char *str, int i)
 	}
 }
 
-void	process_whole_part(int *i, const char *str, double *places_whole_nr, double *num)
+void	process_whole_part(int *i, const char *str, double *places_whole_nr,
+			double *num)
 {	
 	*num = 0;
 	if (str[*i] == '.')
@@ -62,18 +63,35 @@ void	read_until_dec_point(int *i, const char *str, int *sign)
 		(*i)++;
 }
 
-double	ft_atof(const char *str)
+void	calculate_num(double *num, double places_whole_nr,
+double places_decimal_nr, int is_dec_point)
+{	
+	if (is_dec_point == 0)
+		;
+	else if (is_dec_point != 0 && places_whole_nr != 0 && places_whole_nr != 10)
+		*num = *num / places_whole_nr;
+	else
+		*num = *num / places_decimal_nr;
+}
+
+// NEED TO SAVE ATOF ALSO TO THE ORIGINAL LIBFT
+// i AS THE ARG IS ALWAYS ZERO
+double	ft_atof(const char *str, int i)
 {
-	int			i;
 	int			sign;
+	int			is_dec_point;
 	double		num;
 	double		places_whole_nr;
 	double		places_decimal_nr;
-	
+
+	is_dec_point = 0;
 	read_until_dec_point(&i, str, &sign);
 	process_whole_part(&i, str, &places_whole_nr, &num);
 	if (str[i] == '.')
+	{
 		i++;
+		is_dec_point = 1;
+	}
 	places_decimal_nr = 1;
 	while (str[i] && ft_isdigit(str[i]))
 	{
@@ -83,9 +101,6 @@ double	ft_atof(const char *str)
 		i++;
 		places_decimal_nr *= 10;
 	}
-	if (places_whole_nr != 0 && places_whole_nr != 10)
-		num = num / places_whole_nr;
-	else
-		num = num / places_decimal_nr;
+	calculate_num(&num, places_whole_nr, places_decimal_nr, is_dec_point);
 	return (num * sign);
 }
