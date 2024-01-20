@@ -1,6 +1,6 @@
 <!-- <img src="https://i.imgur.com/HG66CCx.png?raw=true" alt="CODAM" style="max-width: 50%;"> -->
 
-![GitHub Logo](libft.png)
+![GitHub Logo](./includes/libft.png)
 <!-- Format: ![Alt Text](url) -->
 
 # Libft - The first project at Codam 
