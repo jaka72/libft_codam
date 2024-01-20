@@ -1,8 +1,7 @@
 <!-- <img src="https://i.imgur.com/HG66CCx.png?raw=true" alt="CODAM" style="max-width: 50%;"> -->
 
-<!-- ![GitHub Logo](/images/libft.png) -->
 ![GitHub Logo](libft.png)
-Format: ![Alt Text](url)
+<!-- Format: ![Alt Text](url) -->
 
 # Libft - The first project at Codam 
 This is a custom C library, which includes several standard C functions for string manipulation, memory allocation and linked list handling,   
